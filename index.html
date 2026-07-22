@@ -78,7 +78,8 @@
   --color-surface-raised:var(--purple-700); --color-surface-light:var(--purple-100);
   --color-ink:var(--ink); --color-ink-inverse:var(--paper); --color-muted:var(--grey-700);
   --color-cta:var(--yellow-300); --color-cta-ink:var(--purple-950);
-  --color-accent-on-dark:var(--railway-orange-500); --color-accent-ink:var(--railway-orange-700);
+  --color-label-on-dark:var(--purple-200); --color-label-on-light:var(--purple-700);
+  --color-highlight:var(--railway-orange-500);   /* reserved: Birmingham in the city-names treatment, warnings */
 
   /* ===== back-compat aliases (legacy names → ramp) ===== */
   --orange:var(--railway-orange-500); --blue:var(--metro-blue-700); --pink:var(--roads-magenta-600);
@@ -2161,38 +2162,7 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
     </div>
 
 
-    <div style="margin-top:48px"></div>
-    <span class="eyebrow">Exhibitor &amp; partner wall</span>
-    <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">A <b>wall of marks</b>, on white</h3>
-    <p class="sec-lead">How many logos display together, the proof of who's in the room. Full colour on
-      a shared white plate: the colour carries each brand, the plate keeps the wall uniform. This is the <strong>Logo wall
-      component</strong> (see Components) applied at full width, in its exhibitor-wall variant.</p>
-    <div class="logowall" style="margin-top:26px">
-      <div class="lw-head">Exhibiting at Birmingham 2027</div>
-      <div class="exg">
-        <img src="assets/logos/exhibitors/normalised/TOYOTA.svg" alt="Toyota">
-        <img src="assets/logos/exhibitors/normalised/Denso.svg" alt="Denso">
-        <img src="assets/logos/exhibitors/normalised/Swarco.svg" alt="Swarco">
-        <img src="assets/logos/exhibitors/normalised/Q-Free.svg" alt="Q-Free">
-        <img src="assets/logos/exhibitors/normalised/Jenoptik.svg" alt="Jenoptik">
-        <img src="assets/logos/exhibitors/normalised/Haskoning.svg" alt="Haskoning">
-        <img src="assets/logos/exhibitors/normalised/HAAS%20Alert.svg" alt="HAAS Alert">
-        <img src="assets/logos/exhibitors/normalised/monotch.svg" alt="Monotch">
-        <img src="assets/logos/exhibitors/normalised/ETTIFOS.svg" alt="ETTIFOS">
-        <img src="assets/logos/exhibitors/normalised/acusensu.svg" alt="acusensu">
-        <img src="assets/logos/exhibitors/normalised/evon.svg" alt="evon">
-        <img src="assets/logos/exhibitors/normalised/Nordic%2B.svg" alt="Nordic+">
-        <img src="assets/logos/exhibitors/normalised/QRoutes.svg" alt="QRoutes">
-        <img src="assets/logos/exhibitors/normalised/RtiG.svg" alt="RTIG">
-        <img src="assets/logos/exhibitors/normalised/ITS%20America.png" alt="ITS America">
-        <img src="assets/logos/exhibitors/normalised/ITS%20Asia-Pacific.svg" alt="ITS Asia-Pacific">
-        <img src="assets/logos/exhibitors/normalised/ITS%20Japan.svg" alt="ITS Japan">
-        <img src="assets/logos/exhibitors/normalised/ITS%20Portugal.svg" alt="ITS Portugal">
-        <img src="assets/logos/exhibitors/normalised/ITS%20Mobility.svg" alt="ITS Mobility">
-      </div>
-    </div>
-
-    <div style="margin-top:48px"></div>
+<div style="margin-top:48px"></div>
     <span class="eyebrow">Official partner banner</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">The official lockup, on a <b>white plate</b> over purple</h3>
     <p class="sec-lead">The official congress banner is a transparent raster of the dark / colour partner logos, so on
@@ -2202,23 +2172,6 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
       <img src="assets/logos/partner-banner/Official%20Congress%20Banners%202026_Digital.png" alt="Official ITS World Congress Birmingham 2027 partner banner: ERTICO, European Commission, ITS America, Asia-Pacific ITS, West Midlands Combined Authority, Transport for West Midlands, UK Government, Visit Britain, Intelligent Transport Systems UK">
     </div>
 
-    <div style="margin-top:44px"></div>
-    <span class="eyebrow">Partners · individual marks</span>
-    <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)"><b>Broken out</b>, so the banner rebuilds from parts</h3>
-    <p class="sec-lead">The banner partners as individual logos, on white tiles. This is how they'd appear in a partner
-      strip or "supported by" block, each one crisp and independently placeable.</p>
-    <div class="partner-status" style="margin-top:24px">
-      <div class="partner-tile"><img src="assets/logos/partners/SVG/European%20Commission-Colour-Landscape.svg" alt="European Commission"></div>
-      <div class="partner-tile"><img src="assets/logos/partners/SVG/WMCA.svg" alt="West Midlands Combined Authority"></div>
-      <div class="partner-tile"><img src="assets/logos/tfwm/Tfwm-Colour-Landscape.svg" alt="Transport for West Midlands"></div>
-      <div class="partner-tile"><img src="assets/logos/partners/SVG/Funded%20by%20UK%20Government.png" alt="Funded by UK Government"></div>
-      <div class="partner-tile"><img src="assets/logos/partners/SVG/VisitBritain_logo.png" alt="VisitBritain"></div>
-      <div class="partner-tile"><img src="assets/logos/partners/SVG/ITS%20UK.svg" alt="ITS UK"></div>
-      <div class="partner-tile"><img src="assets/logos/exhibitors/normalised/ITS%20America.png" alt="ITS America"></div>
-      <div class="partner-tile"><img src="assets/logos/exhibitors/normalised/ITS%20Asia-Pacific.svg" alt="ITS Asia-Pacific"></div>
-    </div>
-    <p class="note" style="margin-top:16px">ERTICO, TfWM, the European Commission, WMCA, UK Government, VisitBritain, ITS UK, ITS America and ITS Asia-Pacific are in place; the remaining marks are being sourced.</p>
-  </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
@@ -2295,7 +2248,8 @@ document.querySelectorAll('#ramps, #neutrals').forEach(root=>{
 const ROLES=[
  ['Surface','--color-surface'],['Surface deep','--color-surface-deep'],['Surface raised','--color-surface-raised'],['Surface light','--color-surface-light'],
  ['Ink','--color-ink'],['Ink inverse','--color-ink-inverse'],['Muted text','--color-muted'],
- ['CTA fill','--color-cta'],['CTA ink','--color-cta-ink'],['Accent on dark','--color-accent-on-dark'],['Accent ink (on light)','--color-accent-ink'],
+ ['CTA fill','--color-cta'],['CTA ink','--color-cta-ink'],['Label on dark','--color-label-on-dark'],['Label on light','--color-label-on-light'],
+ ['Highlight (reserved)','--color-highlight'],
 ];
 document.getElementById('roles').innerHTML = `<div class="roles">`+ROLES.map(([n,t])=>`<div class="role"><span class="chip" style="background:var(${t})"></span><span class="rt"><b>${n}</b><code>${t}</code></span></div>`).join('')+`</div>`;
 
@@ -2317,8 +2271,9 @@ const pairs = [
   {fg:'#54565B', bg:'#FFFFFF', use:'Muted body on white'},
   {fg:'#54565B', bg:'#F3EEF6', use:'Muted body on purple-100'},
   {fg:'#3C1053', bg:'#F3EEF6', use:'Headings on light sections'},
-  {fg:'#FF8300', bg:'#3C1053', use:'Railway Orange: highlight accent on purple (kickers, “Birmingham”)'},
-  {fg:'#A14F00', bg:'#FFFFFF', use:'Railway Orange 700 (accent ink): highlight TEXT on light'},
+  {fg:'#F1DEFF', bg:'#3C1053', use:'Purple-200: eyebrows and labels on dark'},
+  {fg:'#84329B', bg:'#FFFFFF', use:'Purple-700: eyebrows and labels on light'},
+  {fg:'#FF8300', bg:'#3C1053', use:'Railway Orange: reserved highlight (“Birmingham” in city names)'},
   {fg:'#FFC72C', bg:'#3C1053', use:'Yellow (yellow-300): primary CTA fill / copy over overlay'},
   {fg:'#FF8300', bg:'#FFFFFF', use:'Railway Orange 500 as text on white: DO NOT; use railway-orange-700'},
   {fg:'#FFC72C', bg:'#FFFFFF', use:'Yellow 300 as text on white: DO NOT (CTA fill only)'},
