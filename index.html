@@ -17,7 +17,7 @@
   /* ============================================================
      PALETTE · tonal ramps (100 lightest → 900 darkest). OKLCH-generated, perceptually even;
      canonical brand hexes pinned to their natural step. Rule on every ramp:
-     100–300 tints (bg / text on dark) · ~500–600 the brand hue · 700 = AA text on white · 800–900 deep.
+     100–300 tints (bg / text on dark) · 700 = AA text on white · 800–900 deep.
      ============================================================ */
   /* Purple · 900 = Primary #3C1053, 700 = Secondary #84329B */
   --purple-100:#F3EEF6; --purple-200:#F1DEFF; --purple-300:#E6C2FF; --purple-400:#D59FF8;
@@ -573,7 +573,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
 .stage.dark .siteheader .hnav a:hover{background:rgba(255,255,255,0.08);}
 .stage.light .siteheader .hnav a:hover{background:var(--purple-100);}
 .siteheader .burger{display:none;width:40px;height:40px;border-radius:var(--r-sm);border:1px solid currentColor;background:none;color:inherit;cursor:pointer;align-items:center;justify-content:center;font-size:1.1rem;}
-@media(max-width:600px){.siteheader .hnav,.siteheader .siteheader-cta{display:none;}.siteheader .burger{display:inline-flex;}}
+@media(max-width:640px){.siteheader .hnav,.siteheader .siteheader-cta{display:none;}.siteheader .burger{display:inline-flex;}}
 
 /* ---- SITE FOOTER ---- */
 .sitefooter{border-radius:var(--r-md);border:1px solid;padding:30px;}
@@ -989,17 +989,16 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
   <div class="spin a"></div>
   <div class="spin b"></div>
   <div class="hero-inner">
-    <p class="kick">Living design system · The website's point of truth</p>
+    <p class="kick">Living design system · ITS World Congress Birmingham 2027</p>
     <h1>Connect Ideas.<br>Transform Transport.</h1>
-    <p class="hero-sub">The single source of truth for the ITS World Congress Birmingham 2027 website:
-      every token, component and pattern the site is built from, shown on dark and light. The homepage template
-      is derived from what lives here. This page is built <em>in</em> the system it documents.</p>
+    <p class="hero-sub">The single source of truth for ITS World Congress Birmingham 2027 design:
+      every token, component and pattern, shown on dark and light, for anyone creating for the congress.
+      This page is built <em>in</em> the system it documents.</p>
     <div class="hero-meta">
-      <span class="chip">Layers <strong>Foundations → Components → Patterns → Templates</strong></span>
+      <span class="chip">Layers <strong>Foundations → Components → Page sections</strong></span>
       <span class="chip">Surfaces <strong>Dark + Light</strong></span>
       <span class="chip">Type <strong>Montserrat</strong></span>
       <span class="chip">Target <strong>WCAG 2.2 AA</strong></span>
-      <span class="chip">Rule <strong>CMS-editable, no developer</strong></span>
     </div>
   </div>
 </header>
@@ -1010,10 +1009,9 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     <span class="eyebrow">Colour · palette</span>
     <h2 class="sec-title">Tonal ramps</h2>
     <p class="sec-lead">Every brand colour is a <strong>100–900 scale</strong>, generated in OKLCH so the steps are
-      perceptually even, with the canonical brand hex pinned to its natural step (marked <code>•</code>). One rule
-      holds across all of them: <strong>100–300</strong> are tints for backgrounds and text on dark,
-      <strong>500–600</strong> is the brand hue, and <strong>700 is the AA-safe text colour on white</strong>
-      (marked <code>AA</code>). This replaces the old one-off fixes, one orange became a whole ramp.
+      perceptually even, with the canonical brand hex pinned to its natural step (marked <code>•</code>).
+      Across every ramp, <strong>100–300</strong> are tints for backgrounds and text on dark, and
+      <strong>700 is the AA-safe text colour on white</strong> (marked <code>AA</code>).
       Click any step to copy its hex.</p>
     <div id="ramps" style="margin-top:8px"></div>
 
@@ -1028,8 +1026,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     <span class="eyebrow">Colour · semantic roles</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">The tokens components actually use</h3>
     <p class="sec-lead">Components never reach for a raw ramp step, they use these named roles, which point at the
-      ramp. Change a role once and it updates everywhere; the ramp underneath stays the fixed palette. This is the
-      discipline that stops nine oranges being used nine wrong ways.</p>
+      ramp. Change a role once and it updates everywhere; the ramp underneath stays the fixed palette.</p>
     <div id="roles"></div>
   </div>
 </section>
@@ -1102,8 +1099,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     <span class="eyebrow">The grid</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Twelve columns, and phones come first</h3>
     <p class="sec-lead">Every page sits on a set of invisible equal columns, and every block (hero, cards, text,
-      photos) spans a whole number of them. That is why professional sites look tidy: everything lines up because
-      everything sits on the same columns. Desktop gets 12 columns, tablet 8, phone 4.</p>
+      photos) spans a whole number of them, so everything lines up. Desktop gets 12 columns, tablet 8, phone 4.</p>
 
     <div class="review-box" style="margin-top:26px">
       <strong>Mobile first, by order.</strong> The phone layout is designed first; desktop is the upgrade, never
@@ -1163,7 +1159,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     <p class="note" style="margin-top:22px">These two cut-off points (640px and 1024px) are the only official ones;
       page layouts change there and nowhere else. Blocks may still reflow based on their own width (the
       <code>auto-fit</code> card row above), which needs no extra cut-off points.</p>
-    <div class="flags"><span class="flag chrome">Column counts, gaps, cut-off points: fixed chrome</span><span class="flag cms">Which blocks span how many columns: layout choice per page</span></div>
   </div>
 </section>
 
@@ -1195,10 +1190,9 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
   <div class="wrap">
     <span class="eyebrow">Modal Spin</span>
     <h2 class="sec-title">The Modal Spin is a supplied asset, placed still</h2>
-    <p class="sec-lead">The Modal Spin is a <strong>pre-rendered brand graphic</strong>, one of the 25 supplied PNG
+    <p class="sec-lead">The Modal Spin is a <strong>pre-rendered brand graphic</strong>, one of the 27 supplied PNG
       assets the design team made. We place it as a static light element behind or beside content. It is
-      <strong>never rotated and never animated</strong>; the asset already carries the motion, so it does the work
-      standing still.</p>
+      <strong>never rotated and never animated</strong>; the asset already carries the motion.</p>
 
     <div class="spin-feature">
       <img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (14).png" alt="Modal Spin brand asset, placed statically">
@@ -1341,7 +1335,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     <span class="eyebrow" style="margin-top:44px">Imagery · bento layouts</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Four ways to lay out a photo/video wall</h3>
     <p class="sec-lead">Bento grids with one uniform gutter and no holes: every tile fills the grid, and the rhythm
-      comes from the tile sizes. Four rhythms — two photo, one video, one mixed — each worked in real markup.</p>
+      comes from the tile sizes. Four rhythms (two photo, one video, one mixed), each worked in real markup.</p>
 
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem);margin-top:36px">Photo mosaic</h3>
     <p class="note">A mixed-size mosaic: one hero shot anchors it, the rest fall in around it. Hover a tile for its caption. Imagery is placeholder from the interim image bank.</p>
@@ -1355,7 +1349,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
     </div>
 
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem);margin-top:40px">Featured photo + strip</h3>
-    <p class="note">A single large image leads, with a small grid of supporting shots beside it — quieter and more editorial. Imagery is placeholder from the interim image bank.</p>
+    <p class="note">A single large image leads, with a small grid of supporting shots beside it: quieter and more editorial. Imagery is placeholder from the interim image bank.</p>
     <div class="bento bento--feat">
       <figure class="tile"><img src="assets/graphic-assets/image-bank/birmingham-glass-architecture.jpg" alt="City architecture"><figcaption>Birmingham, host of the 33rd ITS World Congress</figcaption></figure>
       <figure class="tile"><img src="assets/graphic-assets/image-bank/birmingham-library-of-birmingham.jpg" alt="Library of Birmingham"><figcaption>Library of Birmingham</figcaption></figure>
@@ -1411,11 +1405,8 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
   <div class="wrap">
     <span class="eyebrow">Components</span>
     <h2 class="sec-title">The building blocks, on dark and light</h2>
-    <p class="sec-lead">Real, working components, each shown on both surfaces the site uses. The homepage template
-      is assembled from these; LiveBuzz derive their CMS blocks from them. Every component carries an editability
-      flag: <span class="flag cms" style="vertical-align:middle">Content block</span> is a block Matthew edits
-      in the CMS without a developer; <span class="flag chrome" style="vertical-align:middle">Fixed chrome</span>
-      is set once and rarely touched.</p>
+    <p class="sec-lead">Real, working components, each shown on both surfaces the system uses. Copy the
+      structure and styling; the content in each example is placeholder.</p>
 
     <!-- BUTTONS -->
     <div style="margin-top:44px"></div>
@@ -1456,7 +1447,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">CTA label + link: content block</span><span class="flag chrome">Styles: fixed chrome</span></div>
 
     <!-- LINKS, TAGS, BADGES -->
     <div style="margin-top:44px"></div>
@@ -1487,7 +1477,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Link text + tags: content block</span></div>
 
     <!-- FORMS -->
     <div style="margin-top:44px"></div>
@@ -1542,7 +1531,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag chrome">Form fields + validation: fixed chrome</span><span class="flag cms">Intro copy + success message: content block</span></div>
 
     <!-- CARDS -->
     <div style="margin-top:44px"></div>
@@ -1619,21 +1607,20 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Every card: content block (image, tag, title, text, link)</span></div>
 
     <!-- SITE HEADER / NAV -->
     <div style="margin-top:44px"></div>
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Site header</h3>
-    <p class="note">Logo, primary navigation, and the conversion CTA. Sticky on scroll. Below 600px the links
+    <p class="note">Logo, primary navigation, and the conversion CTA. Sticky on scroll. Below 640px the links
       collapse to a menu button (resize the window to see it switch).</p>
     <div class="duo">
       <div class="stage dark"><span class="stage-tag">On dark</span>
         <div class="siteheader">
           <span class="brand"><span class="bdot"></span>ITS Birmingham 2027</span>
           <nav class="hnav" aria-label="Primary">
-            <a href="#">Attend</a><a href="#">Programme</a><a href="#">Exhibit</a><a href="#">Sponsor</a>
+            <a href="#">Congress</a><a href="#">Programme</a><a href="#">Exhibit</a><a href="#">Partner</a>
           </nav>
-          <a class="btn btn--cta btn--sm siteheader-cta" href="#">Register interest</a>
+          <a class="btn btn--cta btn--sm siteheader-cta" href="#">Registration</a>
           <button class="burger" aria-label="Open menu">☰</button>
         </div>
       </div>
@@ -1641,20 +1628,18 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         <div class="siteheader">
           <span class="brand"><span class="bdot"></span>ITS Birmingham 2027</span>
           <nav class="hnav" aria-label="Primary">
-            <a href="#">Attend</a><a href="#">Programme</a><a href="#">Exhibit</a><a href="#">Sponsor</a>
+            <a href="#">Congress</a><a href="#">Programme</a><a href="#">Exhibit</a><a href="#">Partner</a>
           </nav>
-          <a class="btn btn--cta btn--sm siteheader-cta" href="#">Register interest</a>
+          <a class="btn btn--cta btn--sm siteheader-cta" href="#">Registration</a>
           <button class="burger" aria-label="Open menu">☰</button>
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Nav labels + links: content block (menu manager)</span><span class="flag chrome">Layout + sticky behaviour: fixed chrome</span></div>
 
     <!-- SITE FOOTER -->
     <div style="margin-top:44px"></div>
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Site footer</h3>
-    <p class="note">Shown full width, the size it actually ships at. Placeholder structure for now: we'll rebuild the
-      columns against the live site's footer content together. Logo present, organiser and host lockups, current-year copyright.</p>
+    <p class="note">Shown full width, the size it actually ships at. Logo, link columns, organiser and host lockups, current-year copyright.</p>
     <div class="stack" style="gap:22px;margin-top:24px">
       <div class="stage dark" style="width:100%"><span class="stage-tag">On dark · full width</span>
         <div class="sitefooter">
@@ -1667,8 +1652,8 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
                 <img src="assets/logos/tfwm/Tfwm-White-Landscape.svg" alt="Transport for West Midlands" style="height:26px;width:auto">
               </div>
             </div>
-            <div><h5>Attend</h5><a href="#">Register interest</a><a href="#">Programme</a><a href="#">Plan your visit</a><a href="#">Book a session</a></div>
-            <div><h5>Get involved</h5><a href="#">Exhibit</a><a href="#">Sponsor</a><a href="#">Speak</a><a href="#">Demonstrate</a></div>
+            <div><h5>Congress</h5><a href="#">Register interest</a><a href="#">Programme</a><a href="#">Plan your visit</a><a href="#">Book a session</a></div>
+            <div><h5>Get involved</h5><a href="#">Exhibit</a><a href="#">Partner</a><a href="#">Speak</a><a href="#">Demonstrate</a></div>
             <div><h5>About</h5><a href="#">The congress</a><a href="#">Why Birmingham</a><a href="#">Press</a><a href="#">Contact</a></div>
           </div>
           <div class="fbar"><span>© 2026 ERTICO – ITS Europe. All rights reserved.</span><span>#ITSBirmingham2027 · 2027.itsworldcongress.com</span></div>
@@ -1685,15 +1670,14 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
                 <img src="assets/logos/tfwm/Tfwm-Colour-Landscape.svg" alt="Transport for West Midlands" style="height:26px;width:auto">
               </div>
             </div>
-            <div><h5>Attend</h5><a href="#">Register interest</a><a href="#">Programme</a><a href="#">Plan your visit</a><a href="#">Book a session</a></div>
-            <div><h5>Get involved</h5><a href="#">Exhibit</a><a href="#">Sponsor</a><a href="#">Speak</a><a href="#">Demonstrate</a></div>
+            <div><h5>Congress</h5><a href="#">Register interest</a><a href="#">Programme</a><a href="#">Plan your visit</a><a href="#">Book a session</a></div>
+            <div><h5>Get involved</h5><a href="#">Exhibit</a><a href="#">Partner</a><a href="#">Speak</a><a href="#">Demonstrate</a></div>
             <div><h5>About</h5><a href="#">The congress</a><a href="#">Why Birmingham</a><a href="#">Press</a><a href="#">Contact</a></div>
           </div>
           <div class="fbar"><span>© 2026 ERTICO – ITS Europe. All rights reserved.</span><span>#ITSBirmingham2027 · 2027.itsworldcongress.com</span></div>
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Logo, columns + links: content block</span><span class="flag chrome">Legal bar: fixed chrome</span></div>
 
     <!-- LOGO WALL -->
     <div style="margin-top:44px"></div>
@@ -1703,14 +1687,13 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       <strong>exhibitor wall</strong> (many marks, full colour: the industry norm, and every exhibitor sees their own
       brand instantly; the shared white plate keeps the wall uniform), and the <strong>big wall</strong> (15+ marks,
       e.g. Development Advisors). All display assets come from the normalised logo sets.</p>
-    <p class="note"><strong>Big wall rule (Riccardo's pick, option A of four, 7 Jul 2026): the breathing grid with
+    <p class="note"><strong>Big wall rule: the breathing grid with
       equal visual weight.</strong> At most five marks per row (tiles minmax 160px), wide gaps (36px row, 44px column),
       no boxes, no motion. Every logo is scaled to cover the same visual <em>area</em>, not the same height:
       <code>height&nbsp;=&nbsp;&radic;(targetArea&nbsp;/&nbsp;aspect)</code> with target&nbsp;4600px&sup2;, height clamped
       26&ndash;60px, width capped 170px (a small script does this per logo at load). A wide wordmark gets less height, a
       square crest gets more, and mixed proportions stop reading as a mess. Reference build: the Development Advisors
-      wall on the homepage. If a list outgrows ~30 marks, revisit the stepped carousel or marquee from
-      <code>pages/logo-lab.html</code>.</p>
+      wall on the homepage.</p>
     <div class="stack" style="gap:22px;margin-top:24px">
       <div class="stage dark" style="width:100%"><span class="stage-tag">Partner strip · on dark, white plate</span>
         <div class="logowall">
@@ -1736,7 +1719,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Heading + logo list: content block</span><span class="flag chrome">White plate + sizing: fixed chrome</span></div>
 
     <!-- ACCORDION -->
     <div style="margin-top:44px"></div>
@@ -1759,7 +1741,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Questions + answers: content block</span></div>
 
     <!-- TABS -->
     <div style="margin-top:44px"></div>
@@ -1792,7 +1773,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Tab labels + panel content: content block</span></div>
 
     <!-- ALERTS + ANNOUNCEMENT -->
     <div style="margin-top:44px"></div>
@@ -1817,7 +1797,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Announcement text + link: content block</span></div>
 
     <!-- BREADCRUMBS + PAGINATION -->
     <div style="margin-top:44px"></div>
@@ -1836,13 +1815,12 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag chrome">Generated from page structure: fixed chrome</span></div>
 
     <!-- FORMAT MARKS (ported from pages/component-lab.html · "Labels: icon + text") -->
     <div style="margin-top:44px"></div>
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Format marks</h3>
     <p class="note">Icon + word labels that mark session formats and theme tracks on programme and speaker cards.
-      Four treatments — inline, icon-in-plate, stacked and divider — each shown across the four theme colours
+      Four treatments (inline, icon-in-plate, stacked and divider), each shown across the four theme colours
       (People, Planet, Technology, Business). Colour lives in the icon; the word stays neutral.</p>
     <div class="duo">
       <div class="stage dark"><span class="stage-tag">On dark</span>
@@ -1918,7 +1896,6 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         </div>
       </div>
     </div>
-    <div class="flags"><span class="flag cms">Track/format label text: content block</span><span class="flag chrome">Icon + colour mapping: fixed chrome</span></div>
   </div>
 </section>
 
@@ -1939,7 +1916,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
         <ul class="itsg-sr-only" data-itsg-cities></ul>
       </div>
       <p class="globe-cap">Plots all 33 host cities from Paris 1994 to Birmingham 2027. This is the same component
-        inlined into the homepage — single source of truth, no separate file.</p>
+        inlined into the congress homepage, one source of truth.</p>
     </div>
   </div>
 </section>
@@ -1947,12 +1924,11 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
 <!-- ============ PATTERNS ============ -->
 <section id="patterns" class="band-dark">
   <div class="wrap">
-    <span class="eyebrow">Patterns</span>
+    <span class="eyebrow">Page sections</span>
     <h2 class="sec-title">Section blocks the pages are assembled from</h2>
-    <p class="sec-lead">Components combine into these reusable page sections. A page is a stack of patterns.
-      Each maps to a CMS block Matthew can add, reorder, or edit without touching code.</p>
+    <p class="sec-lead">Components combine into these reusable page sections. A page is a stack of sections, added and reordered, never redesigned from scratch.</p>
 
-    <div class="pattern"><div class="plabel"><span>Hero</span><span class="cms-inline">Content block: kicker, headline, sub, two CTAs, background image</span></div>
+    <div class="pattern"><div class="plabel"><span>Hero</span><span class="cms-inline">kicker, headline, sub, two CTAs, background image</span></div>
       <div class="p-hero"><div class="spin"></div>
         <div style="position:relative;z-index:2">
           <div class="kick">25–29 October 2027 · NEC Birmingham</div>
@@ -1963,16 +1939,16 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       </div>
     </div>
 
-    <div class="pattern"><div class="plabel"><span>Proof / stat band</span><span class="cms-inline">Content block: 3–4 figure + label pairs</span></div>
+    <div class="pattern"><div class="plabel"><span>Proof / stat band</span><span class="cms-inline">3–4 figure + label pairs</span></div>
       <div class="p-statband">
-        <div class="p-stat"><div class="n">30,000+</div><div class="l">Attendees expected</div></div>
-        <div class="p-stat"><div class="n">£117bn</div><div class="l">Regional economy</div></div>
-        <div class="p-stat"><div class="n">150+</div><div class="l">Countries represented</div></div>
-        <div class="p-stat"><div class="n">5 days</div><div class="l">Of programme &amp; demos</div></div>
+        <div class="p-stat"><div class="n">15,000</div><div class="l">International participants</div></div>
+        <div class="p-stat"><div class="n">60%+</div><div class="l">Public sector</div></div>
+        <div class="p-stat"><div class="n">100+</div><div class="l">Countries represented</div></div>
+        <div class="p-stat"><div class="n">3,000+</div><div class="l">Organisations</div></div>
       </div>
     </div>
 
-    <div class="pattern"><div class="plabel"><span>Content + media split</span><span class="cms-inline">Content block: image, heading, text, CTA</span></div>
+    <div class="pattern"><div class="plabel"><span>Content + media split</span><span class="cms-inline">image, heading, text, CTA</span></div>
       <div class="p-split">
         <div class="media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"></div>
         <div class="copy"><h3>A living testbed for mobility</h3>
@@ -1982,14 +1958,14 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       </div>
     </div>
 
-    <div class="pattern"><div class="plabel"><span>CTA band</span><span class="cms-inline">Content block: headline, sub, one CTA</span></div>
+    <div class="pattern"><div class="plabel"><span>CTA band</span><span class="cms-inline">headline, sub, one CTA</span></div>
       <div class="p-ctaband"><h3>Be the first to know when registration opens.</h3>
         <p>Register your interest and we'll keep you posted on programme, registration and travel.</p>
         <div class="p-actions on-dark"><a class="btn btn--cta btn--lg" href="#">Register interest</a></div>
       </div>
     </div>
 
-    <div class="pattern"><div class="plabel"><span>Logo wall</span><span class="cms-inline">Content block: partner logos · uses the Logo wall component</span></div>
+    <div class="pattern"><div class="plabel"><span>Logo wall</span><span class="cms-inline">partner logos · uses the Logo wall component</span></div>
       <div class="p-logowall"><div class="lw-head">Organised &amp; hosted by</div>
         <div class="lw-grid">
           <img src="assets/logos/ertico/ertico-colour-tagline.png" alt="ERTICO – ITS Europe">
@@ -1999,7 +1975,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       </div>
     </div>
 
-    <div class="pattern"><div class="plabel"><span>Card grid</span><span class="cms-inline">Content block: repeatable card list</span></div>
+    <div class="pattern"><div class="plabel"><span>Card grid</span><span class="cms-inline">repeatable card list</span></div>
       <div class="p-cardgrid"><div class="cg on-dark">
         <article class="card"><div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-library-of-birmingham.jpg')"></div>
           <div class="card-body"><span class="card-date">News</span><h4 class="card-title">Programme highlights</h4><p class="card-text">First sessions announced.</p></div></article>
@@ -2012,74 +1988,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
   </div>
 </section>
 
-<!-- ============ TEMPLATES ============ -->
-<section id="templates" class="band-deep">
-  <div class="wrap">
-    <span class="eyebrow">Templates</span>
-    <h2 class="sec-title">How patterns compose into pages</h2>
-    <p class="sec-lead">The two Phase 0 pages, as an ordered stack of the patterns above. This is the assembly
-      contract: the homepage is the point-of-truth template LiveBuzz derive the site from.</p>
 
-    <div class="wire" style="margin-top:32px">
-      <div class="wtitle"><span>Homepage</span><span class="wt-tag">Point-of-truth template</span></div>
-      <div class="wrows">
-        <div class="wrow hero-row"><span class="wr-name">Announcement bar</span><span class="wr-desc">Registration status, one link.</span><span class="wr-uses">Announcement</span></div>
-        <div class="wrow hero-row"><span class="wr-name">Header</span><span class="wr-desc">Logo, nav, register CTA.</span><span class="wr-uses">Site header</span></div>
-        <div class="wrow hero-row"><span class="wr-name">Hero</span><span class="wr-desc">Headline, date/place, two CTAs, Modal Spin.</span><span class="wr-uses">Hero</span></div>
-        <div class="wrow"><span class="wr-name">Proof band</span><span class="wr-desc">Scale figures that earn the premium.</span><span class="wr-uses">Stat band</span></div>
-        <div class="wrow"><span class="wr-name">What is the congress</span><span class="wr-desc">Image + copy, link to About.</span><span class="wr-uses">Content + media split</span></div>
-        <div class="wrow"><span class="wr-name">Get involved</span><span class="wr-desc">Attend / Exhibit / Sponsor routes.</span><span class="wr-uses">Card grid</span></div>
-        <div class="wrow"><span class="wr-name">Why Birmingham</span><span class="wr-desc">Future Transport Zone story.</span><span class="wr-uses">Content + media split</span></div>
-        <div class="wrow"><span class="wr-name">Latest news</span><span class="wr-desc">Three most recent articles.</span><span class="wr-uses">Card grid</span></div>
-        <div class="wrow"><span class="wr-name">Register CTA</span><span class="wr-desc">Final conversion push.</span><span class="wr-uses">CTA band</span></div>
-        <div class="wrow"><span class="wr-name">Partners</span><span class="wr-desc">Organiser + host lockups.</span><span class="wr-uses">Logo wall</span></div>
-        <div class="wrow"><span class="wr-name">Footer</span><span class="wr-desc">Full sitemap, legal.</span><span class="wr-uses">Site footer</span></div>
-      </div>
-    </div>
-
-    <div class="wire" style="margin-top:24px">
-      <div class="wtitle"><span>Exhibit page</span><span class="wt-tag">Live paid traffic, must convert</span></div>
-      <div class="wrows">
-        <div class="wrow hero-row"><span class="wr-name">Header</span><span class="wr-desc">Same chrome as homepage.</span><span class="wr-uses">Site header</span></div>
-        <div class="wrow hero-row"><span class="wr-name">Hero</span><span class="wr-desc">"Exhibit at Birmingham 2027", one enquiry CTA.</span><span class="wr-uses">Hero</span></div>
-        <div class="wrow"><span class="wr-name">Why exhibit</span><span class="wr-desc">Audience reach + proof figures.</span><span class="wr-uses">Stat band</span></div>
-        <div class="wrow"><span class="wr-name">What you get</span><span class="wr-desc">Stand + package benefits.</span><span class="wr-uses">Card grid</span></div>
-        <div class="wrow"><span class="wr-name">Who exhibits</span><span class="wr-desc">21 partner logos, credibility.</span><span class="wr-uses">Logo wall</span></div>
-        <div class="wrow"><span class="wr-name">Enquiry form</span><span class="wr-desc">Capture the lead. Core conversion.</span><span class="wr-uses">Form + CTA band</span></div>
-        <div class="wrow"><span class="wr-name">FAQ</span><span class="wr-desc">Objection handling.</span><span class="wr-uses">Accordion</span></div>
-        <div class="wrow"><span class="wr-name">Footer</span><span class="wr-desc">Same chrome as homepage.</span><span class="wr-uses">Site footer</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TENSIONS ============ -->
-<section id="tensions" class="band-dark">
-  <div class="wrap">
-    <span class="eyebrow">Resolved tensions</span>
-    <h2 class="sec-title">Where impeccable prevails over the guidelines</h2>
-    <p class="sec-lead">Four places the brand toolkit and sound design collide, and the call that was made.
-      These are the most likely things you'll want to confirm or overturn.</p>
-    <div class="tensions">
-      <div class="tension">
-        <div class="guide"><div class="tag">Guideline allows</div><div class="ti">Spin / gradient inside headline text</div><p>The toolkit permits the Modal Spin filling headline type.</p></div>
-        <div class="res"><div class="tag">Resolution</div><div class="ti">Spin as background portal; solid type</div><p>Default to the Spin as a light element with legible solid type. A Spin-in-type treatment is allowed only on a single hero word when contrast is verified.</p></div>
-      </div>
-      <div class="tension">
-        <div class="guide"><div class="tag">Guideline shows</div><div class="ti">Full rainbow transit palette</div><p>All eight transit colours used together.</p></div>
-        <div class="res"><div class="tag">Resolution</div><div class="ti">Committed/Drenched purple + one yellow</div><p>Transit colours restrained to categorical roles, never sprinkled; reads premium, not loud.</p></div>
-      </div>
-      <div class="tension">
-        <div class="guide"><div class="tag">Guideline shows</div><div class="ti">Full-caps lockups</div><p>All-caps usage across marketing surfaces.</p></div>
-        <div class="res"><div class="tag">Resolution</div><div class="ti">Caps for short labels only (≤4 words)</div><p>Never all-caps body or long headings.</p></div>
-      </div>
-      <div class="tension">
-        <div class="guide"><div class="tag">AI default</div><div class="ti">Warm cream / sand light sections</div><p>The saturated AI-default warm near-white.</p></div>
-        <div class="res"><div class="tag">Resolution</div><div class="ti">Purple-tinted near-white (--purple-100)</div><p>Warmth carried by the yellow accent and imagery, not the background.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ LOGOS ============ -->
 <section id="logos" class="band-deep">
@@ -2210,20 +2119,11 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       </div>
     </div>
 
-    <div style="margin-top:56px"></div>
-    <span class="eyebrow">Official partner banner</span>
-    <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">On a white plate over purple</h3>
-    <p class="sec-lead">The official congress banner is supplied as a transparent raster with dark / colour logos,
-      so on the dark brochure it sits on a white plate: the standard, premium way to present it. Organised by,
-      in collaboration with, co-organised by, hosted by, supported by.</p>
-    <div class="banner-plate">
-      <img src="assets/logos/partner-banner/Official%20Congress%20Banners%202026_Digital.png" alt="Official ITS World Congress Birmingham 2027 partner banner: ERTICO, European Commission, ITS America, Asia-Pacific ITS, West Midlands Combined Authority, Transport for West Midlands, UK Government, Visit Britain, Intelligent Transport Systems UK">
-    </div>
 
     <div style="margin-top:48px"></div>
     <span class="eyebrow">Exhibitor &amp; partner wall</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">A wall of marks, on white</h3>
-    <p class="sec-lead">How many logos display together, the exhibit page's proof of who's in the room. Full colour on
+    <p class="sec-lead">How many logos display together, the proof of who's in the room. Full colour on
       a shared white plate: the colour carries each brand, the plate keeps the wall uniform. This is the <strong>Logo wall
       component</strong> (see Components) applied at full width, in its exhibitor-wall variant.</p>
     <div class="logowall" style="margin-top:26px">
@@ -2276,7 +2176,7 @@ section{padding:clamp(40px,6vw,80px) clamp(20px,5vw,56px);}
       <div class="partner-tile"><img src="assets/logos/exhibitors/normalised/ITS%20America.png" alt="ITS America"></div>
       <div class="partner-tile"><img src="assets/logos/exhibitors/normalised/ITS%20Asia-Pacific.svg" alt="ITS Asia-Pacific"></div>
     </div>
-    <p class="note" style="margin-top:16px">All banner partners now broken out except a couple still to source. ERTICO, TfWM, EC, WMCA, UK Government, VisitBritain, ITS UK, ITS America and ITS Asia-Pacific are in place.</p>
+    <p class="note" style="margin-top:16px">ERTICO, TfWM, the European Commission, WMCA, UK Government, VisitBritain, ITS UK, ITS America and ITS Asia-Pacific are in place; the remaining marks are being sourced.</p>
   </div>
 </section>
 
@@ -2507,14 +2407,12 @@ document.querySelectorAll('.vtile .play').forEach(function(btn){
       {id:'iconography', title:'Iconography', secs:['iconography']},
       {id:'imagery', title:'Imagery & media', secs:['imagery']},
       {id:'logos', title:'Logos', secs:['logos']},
-      {id:'tensions', title:'Principles', secs:['tensions']},
     ]},
     {group:'Components', items:[
       {id:'components', title:'Components', secs:['components']},
       {id:'globe', title:'Host-cities globe', secs:['globe']},
     ]},
-    {group:'Patterns', items:[{id:'patterns', title:'Patterns', secs:['patterns']}]},
-    {group:'Templates', items:[{id:'templates', title:'Templates', secs:['templates']}]},
+    {group:'Page sections', items:[{id:'patterns', title:'Page sections', secs:['patterns']}]},
   ];
   const ALL = [...new Set(PAGES.flatMap(g=>g.items.flatMap(i=>i.secs)))];
   const byId = id => document.getElementById(id);
