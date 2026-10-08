@@ -233,7 +233,18 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .hero{position:relative;overflow:hidden;min-height:82vh;display:flex;align-items:center;
   padding:clamp(60px,10vw,120px) clamp(20px,5vw,56px);
   background:transparent;color:var(--canvas-ink);}  /* follows the theme like every page */
-/* Modal Spin: the official supplied PNG asset, placed statically. Never rotated, never animated. */
+/* Modal Spin: the official supplied PNG asset, placed statically. Never rotated, never animated.
+   CORNER RULE (Riccardo, 8 Oct 2026): graphics 01-04 are corner pieces, cut flat where they meet the edge of their
+   16:9 frame. Their cut edges always sit on the edges of the container, sharp corner in the matching corner
+   (01, 03: left edge, bottom-left corner · 02: bottom-right corner · 04: right edge). Never float a cut edge inside a
+   layout: it reads as a bad crop. 05-27 are complete swirls: place freely or run them off the edge. */
+img.spin-corner{padding:0;object-fit:cover;max-width:none;max-height:none;}
+img.spin-corner.sc-lb{object-position:left bottom;transform-origin:left bottom;}
+img.spin-corner.sc-rb{object-position:right bottom;transform-origin:right bottom;}
+img.spin-corner.sc-r{object-position:right center;transform-origin:right center;}
+.dl-media img.spin-corner{padding:0;object-fit:cover;}
+.has-spin-corner{position:relative;padding:0 !important;overflow:hidden;}
+.has-spin-corner > img.spin-corner{position:absolute;inset:0;width:100%;height:100%;}
 .spin{position:absolute;pointer-events:none;background-position:center;background-repeat:no-repeat;
   background-size:contain;}
 /* oversized and cropped (22 Jul 2026): the Spin runs far off-canvas so only an arc enters the frame */
@@ -476,6 +487,14 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
   background:radial-gradient(circle at 50% 42%,#33124a,#1f0830);display:flex;align-items:center;justify-content:center;
   padding:clamp(30px,6vw,60px);min-height:320px;}
 .spin-feature img{max-width:360px;width:62%;height:auto;}
+.spin-rule{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;}
+.spin-rule figure{margin:0;border:1px solid var(--line-dark);border-radius:var(--r-md);overflow:hidden;background:var(--panel);}
+.spin-rule-frame{height:190px;background:radial-gradient(circle at 50% 45%,#33124a,#1f0830);}
+.spin-rule-frame.floating{display:flex;align-items:center;justify-content:center;padding:34px;}
+.spin-rule-frame.floating img{max-width:100%;max-height:100%;}
+.spin-rule figcaption{padding:10px 14px;font-size:0.82rem;line-height:1.45;color:var(--panel-muted);}
+.spin-do,.spin-dont{font-weight:700;margin-right:6px;} .spin-do{color:#6fcf8a;} .spin-dont{color:#ff7a7a;}
+[data-theme="light"] .spin-do{color:#1d7a3a;} [data-theme="light"] .spin-dont{color:#b3261e;}
 .spin-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:20px;}
 .spin-item{border:1px solid var(--line-dark);border-radius:var(--r-md);overflow:hidden;
   background:radial-gradient(circle at 50% 45%,#33124a,#1f0830);}
@@ -627,7 +646,9 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .stage.dark .siteheader .hnav a:hover{background:rgba(255,255,255,0.08);}
 .stage.light .siteheader .hnav a:hover{background:var(--purple-100);}
 .siteheader .burger{display:none;width:40px;height:40px;border-radius:var(--r-sm);border:1px solid currentColor;background:none;color:inherit;cursor:pointer;align-items:center;justify-content:center;font-size:1.1rem;}
-@media(max-width:640px){.siteheader .hnav,.siteheader .siteheader-cta{display:none;}.siteheader .burger{display:inline-flex;}}
+/* collapse on the header's own width, not the screen's, so the demo never pushes the page sideways */
+.stage:has(> .siteheader){container-type:inline-size;}
+@container (max-width:640px){.siteheader .hnav,.siteheader .siteheader-cta{display:none;}.siteheader .burger{display:inline-flex;}}
 
 /* ---- SITE FOOTER ---- */
 .sitefooter{border-radius:var(--r-md);border:1px solid;padding:30px;}
@@ -1184,10 +1205,10 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
         </div>
       </div>
       <div class="dl-card">
-        <a class="dl-view on-purple spin-bg" href="#dl-modal-spin" aria-label="Or pick a single graphic"><img src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic"></a>
+        <a class="dl-view on-purple spin-bg has-spin-corner" href="#dl-modal-spin" aria-label="Or pick a single graphic"><img class="spin-corner sc-lb" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic"></a>
         <div class="dl-body">
           <h3><a href="#dl-modal-spin">Modal Spin graphics</a></h3>
-          <p>The official brand swirl, 27 transparent PNGs. Use as a background, corner or texture. Never rotate, recolour or animate it.</p>
+          <p>The official brand swirl, 27 transparent PNGs. Never rotate, recolour or animate it. Corner pieces 01 to 04 always sit in the matching corner of the frame.</p>
           <button class="btn btn--cta btn--sm" type="button" data-zip="modal-spin" data-zipname="ITSWC27-Modal-Spin.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 27 · ZIP · 29&nbsp;MB</button>
           <a class="dl-pick" href="#dl-modal-spin">Or pick a single graphic ↓</a>
         </div>
@@ -1235,13 +1256,14 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
     <div style="margin-top:48px"></div>
     <span class="eyebrow" id="dl-modal-spin">Modal Spin · pick one</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Download a <b>single graphic</b></h3>
-    <p class="sec-lead">Click a graphic to download the full-size PNG.</p>
+    <p class="sec-lead">Click a graphic to download the full-size PNG. 01 to 04 are corner pieces: put their cut edges on the
+      edges of your layout, sharp corner in the matching corner (<a href="#motion">the rule</a>).</p>
     <p style="margin-top:18px"><button class="btn btn--cta btn--sm" type="button" data-zip="modal-spin" data-zipname="ITSWC27-Modal-Spin.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 27 · ZIP · 29&nbsp;MB</button></p>
     <div class="dl-thumbs" data-set="modal-spin">
-      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-01.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic 01"></span><span class="dl-name">01</span></a>
-      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-02.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-02-thumb.png" alt="Modal Spin graphic 02"></span><span class="dl-name">02</span></a>
-      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-03.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-03-thumb.png" alt="Modal Spin graphic 03"></span><span class="dl-name">03</span></a>
-      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-04.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-04-thumb.png" alt="Modal Spin graphic 04"></span><span class="dl-name">04</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-01.png" download><span class="dl-media"><img class="spin-corner sc-lb" loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic 01"></span><span class="dl-name">01</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-02.png" download><span class="dl-media"><img class="spin-corner sc-rb" loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-02-thumb.png" alt="Modal Spin graphic 02"></span><span class="dl-name">02</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-03.png" download><span class="dl-media"><img class="spin-corner sc-lb" loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-03-thumb.png" alt="Modal Spin graphic 03"></span><span class="dl-name">03</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-04.png" download><span class="dl-media"><img class="spin-corner sc-r" loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-04-thumb.png" alt="Modal Spin graphic 04"></span><span class="dl-name">04</span></a>
       <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-05.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-05-thumb.png" alt="Modal Spin graphic 05"></span><span class="dl-name">05</span></a>
       <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-06.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-06-thumb.png" alt="Modal Spin graphic 06"></span><span class="dl-name">06</span></a>
       <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-07.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-07-thumb.png" alt="Modal Spin graphic 07"></span><span class="dl-name">07</span></a>
@@ -1514,11 +1536,25 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
       <img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (14).png" alt="Modal Spin brand asset, placed statically">
     </div>
 
+    <div style="margin-top:40px"></div>
+    <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Corner pieces: <b>anchor the sharp corner</b></h3>
+    <p class="note">Four of the 27 graphics (<strong>01 to 04</strong>) are corner pieces: the swirl is cut flat where it
+      meets the edge of its frame. <strong>Always place a cut edge on the edge of the container, with the sharp corner in
+      the matching corner</strong>: 01 and 03 on the left edge (sharp corner bottom left), 02 in the bottom-right corner,
+      04 on the right edge. Never let a cut edge float inside a layout: it looks like a bad crop. The other 23 (05 to 27)
+      are complete swirls with no cut edge: place them freely, or run them off the edge of the frame.</p>
+    <div class="spin-rule">
+      <figure><div class="spin-rule-frame has-spin-corner"><img class="spin-corner sc-lb" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Corner piece 01 anchored to the bottom-left corner of its frame"></div>
+        <figcaption><span class="spin-do">Do</span> Cut edges on the frame's edges, sharp corner in its corner.</figcaption></figure>
+      <figure><div class="spin-rule-frame floating"><img src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Corner piece 01 floating in the middle of its frame, showing hard cut edges"></div>
+        <figcaption><span class="spin-dont">Don't</span> Float it inside the frame: the cut edges show as a crop.</figcaption></figure>
+    </div>
+
     <p class="note" style="margin-top:26px">A slice of the supplied library. Pick the asset that suits the layout; use it as-is.</p>
     <div class="spin-gallery">
       <div class="spin-item"><div class="sv"><img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (20).png" alt="Modal Spin asset 20"></div><div class="sl">asset 20</div></div>
       <div class="spin-item"><div class="sv"><img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (7).png" alt="Modal Spin asset 7"></div><div class="sl">asset 07</div></div>
-      <div class="spin-item"><div class="sv"><img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (1).png" alt="Modal Spin asset 1"></div><div class="sl">asset 01</div></div>
+      <div class="spin-item"><div class="sv has-spin-corner"><img class="spin-corner sc-lb" src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (1).png" alt="Modal Spin asset 1, a corner piece anchored bottom left"></div><div class="sl">asset 01</div></div>
       <div class="spin-item"><div class="sv"><img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (11).png" alt="Modal Spin asset 11"></div><div class="sl">asset 11</div></div>
       <div class="spin-item"><div class="sv"><img src="assets/graphic-assets/modal-spin/Modal Spin Asset _Digital (26).png" alt="Modal Spin asset 26"></div><div class="sl">asset 26</div></div>
     </div>
@@ -1927,10 +1963,10 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
     <!-- SITE HEADER / NAV -->
     <div style="margin-top:44px"></div>
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)"><b>Site header</b></h3>
-    <p class="note">Logo, primary navigation, and the conversion CTA. Sticky on scroll. Below 640px the links
+    <p class="note">Logo, primary navigation, and the conversion CTA. Sticky on scroll. When the header has less than 640px, the links
       collapse to a menu button (resize the window to see it switch).</p>
-    <div class="duo">
-      <div class="stage dark"><span class="stage-tag">On dark</span>
+    <div class="stack" style="gap:22px">
+      <div class="stage dark" style="width:100%"><span class="stage-tag">On dark</span>
         <div class="siteheader">
           <span class="brand"><span class="bdot"></span>ITS Birmingham 2027</span>
           <nav class="hnav" aria-label="Primary">
@@ -1940,7 +1976,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
           <button class="burger" aria-label="Open menu">☰</button>
         </div>
       </div>
-      <div class="stage light"><span class="stage-tag">On light</span>
+      <div class="stage light" style="width:100%"><span class="stage-tag">On light</span>
         <div class="siteheader">
           <span class="brand"><span class="bdot"></span>ITS Birmingham 2027</span>
           <nav class="hnav" aria-label="Primary">
@@ -2775,12 +2811,24 @@ document.querySelectorAll('.pb-wrap').forEach(wrap=>{
 });
 
 /* ---------- downloads: build "download all" ZIPs in the browser (JSZip, self-hosted) ---------- */
+const README={'modal-spin':[
+  'ITS World Congress Birmingham 2027 - Modal Spin graphics','',
+  'The official brand swirl, 27 transparent PNGs. Use them as they are: never rotate, recolour, distort or animate them.','',
+  'CORNER PIECES (01 to 04): the swirl is cut flat where it meets the edge of its frame.',
+  'Always place a cut edge on the edge of your layout, with the sharp corner in the matching corner:',
+  '  01 and 03: left edge, sharp corner bottom left',
+  '  02: bottom-right corner',
+  '  04: right edge',
+  'Never let a cut edge float inside a layout: it looks like a bad crop.','',
+  'COMPLETE SWIRLS (05 to 27): no cut edges. Place them freely, or run them off the edge of the frame.','',
+  'Full guidelines: https://its-congresses.github.io/ITSWC27-Brand-Guidelines/#motion'].join('\r\n')};
 document.querySelectorAll('[data-zip]').forEach(btn=>btn.addEventListener('click',async()=>{
   if(btn.dataset.busy) return;
   const label=btn.innerHTML; btn.dataset.busy=1;
   try{
     const links=[...document.querySelectorAll('[data-set="'+btn.dataset.zip+'"] a[download]')];
     const zip=new JSZip(); let n=0;
+    if(README[btn.dataset.zip]) zip.file('READ ME.txt', README[btn.dataset.zip]);
     for(const a of links){
       btn.lastChild.textContent=' Preparing '+(++n)+' / '+links.length+'…';
       const r=await fetch(a.getAttribute('href')); zip.file(decodeURIComponent(a.getAttribute('href').split('/').pop()), await r.blob());
