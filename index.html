@@ -479,6 +479,11 @@ img.spin-corner.sc-r{object-position:right center;transform-origin:right center;
 .partner-tile{background:var(--paper);border-radius:var(--r-md);padding:14px 22px;height:66px;display:flex;align-items:center;}
 .partner-tile img{height:38px;width:auto;max-width:240px;}
 .footer-banner{background:#fff;border-radius:var(--r-lg);padding:clamp(18px,3vw,32px) clamp(14px,2.5vw,28px);max-width:1180px;margin:0 auto 36px;}
+/* dark theme: the white banner straight on purple (logos cut from the official white banner PNG); light theme: colour on a white plate */
+.footer-banner.fb-dark{background:transparent;}
+.footer .pb{text-align:left;}
+.footer .fb-light{display:none;} [data-theme="light"] .footer .fb-light{display:block;} [data-theme="light"] .footer .fb-dark{display:none;}
+.pb.pb--white{--line:1px solid rgba(255,255,255,0.3);} .pb.pb--white .pb-group .pb-label{color:rgba(255,255,255,0.7);}
 .footer-logos{display:flex;gap:clamp(28px,5vw,60px);align-items:center;justify-content:center;flex-wrap:wrap;
   margin:0 auto 36px;padding-bottom:32px;border-bottom:1px solid var(--line-dark);max-width:760px;}
 .footer-logos img{height:44px;width:auto;}
@@ -1904,7 +1909,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
       <div class="stage dark"><span class="stage-tag">On dark</span>
         <div class="cg" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <article class="card">
-            <div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-library-of-birmingham.jpg')"></div>
+            <div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Research-NAIC-mixed-reality.jpg')"></div>
             <div class="card-body">
               <span class="card-date">12 Mar 2027 · News</span>
               <h4 class="card-title">Programme highlights announced</h4>
@@ -1922,7 +1927,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
             </div>
           </article>
           <article class="card card--speaker">
-            <div class="avatar" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"></div>
+            <div class="avatar" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Birmingham-Festival-dancer.jpg')"></div>
             <div class="sp-name">Dr Amara Osei</div>
             <div class="sp-role">Director of Mobility, WMCA</div>
           </article>
@@ -1938,7 +1943,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
       <div class="stage light"><span class="stage-tag">On light</span>
         <div class="cg" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <article class="card">
-            <div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-library-of-birmingham.jpg')"></div>
+            <div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Research-NAIC-mixed-reality.jpg')"></div>
             <div class="card-body">
               <span class="card-date">12 Mar 2027 · News</span>
               <h4 class="card-title">Programme highlights announced</h4>
@@ -1956,7 +1961,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
             </div>
           </article>
           <article class="card card--speaker">
-            <div class="avatar" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"></div>
+            <div class="avatar" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Birmingham-Festival-dancer.jpg')"></div>
             <div class="sp-name">Dr Amara Osei</div>
             <div class="sp-role">Director of Mobility, WMCA</div>
           </article>
@@ -2321,7 +2326,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
 
     <div class="pattern"><div class="plabel"><span>Content + media split</span><span class="cms-inline">image, heading, text, CTA</span></div>
       <div class="p-split">
-        <div class="media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"></div>
+        <div class="media" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Innovation-NAIC-car-sculpture.jpg')"></div>
         <div class="copy"><h3>A living testbed for mobility</h3>
           <p>Birmingham sits in the UK's first Future Transport Zone, a real-world environment for deploying and proving new transport technology.</p>
           <div class="p-actions on-dark"><a class="btn btn--primary" href="#">Why Birmingham</a></div>
@@ -2348,9 +2353,9 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
 
     <div class="pattern"><div class="plabel"><span>Card grid</span><span class="cms-inline">repeatable card list</span></div>
       <div class="p-cardgrid"><div class="cg on-dark">
-        <article class="card"><div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-library-of-birmingham.jpg')"></div>
+        <article class="card"><div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Research-NAIC-mixed-reality.jpg')"></div>
           <div class="card-body"><span class="card-date">News</span><h4 class="card-title">Programme highlights</h4><p class="card-text">First sessions announced.</p></div></article>
-        <article class="card"><div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"></div>
+        <article class="card"><div class="card-media" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Birmingham-Airport.jpg')"></div>
           <div class="card-body"><span class="card-date">Visit</span><h4 class="card-title">Plan your trip</h4><p class="card-text">Travel and accommodation.</p></div></article>
         <article class="card"><div class="card-media" style="background:var(--purple-700)"></div>
           <div class="card-body"><span class="card-date">Exhibit</span><h4 class="card-title">Showcase your work</h4><p class="card-text">Stand options for 2027.</p></div></article>
@@ -2377,7 +2382,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
         <div class="lr-cap"><b>On purple → white.</b> Reversed mark on any dark or purple surface.</div></div>
       <div class="lrule"><div class="lr-view on-white"><img src="assets/logos/its-birmingham-2027/normalised/ITSWC27-Colour-Landscape-NoDate.svg" alt="ITS World Congress Birmingham 2027, colour, on white"></div>
         <div class="lr-cap"><b>On light → colour.</b> Full-colour mark on white or light tints.</div></div>
-      <div class="lrule"><div class="lr-view on-photo" style="background-image:url('assets/graphic-assets/image-bank/birmingham-selfridges-bullring.jpg')"><img src="assets/logos/its-birmingham-2027/normalised/ITSWC27-White-Landscape-NoDate.svg" alt="ITS World Congress Birmingham 2027, white, on a photo with purple overlay"></div>
+      <div class="lrule"><div class="lr-view on-photo" style="background-image:url('assets/graphic-assets/image-bank/web/ITSWC27-Selfridges-Bullring-sunset.jpg')"><img src="assets/logos/its-birmingham-2027/normalised/ITSWC27-White-Landscape-NoDate.svg" alt="ITS World Congress Birmingham 2027, white, on a photo with purple overlay"></div>
         <div class="lr-cap"><b>On photo → white over overlay.</b> Never place a logo directly on a busy photo.</div></div>
     </div>
 
@@ -2526,7 +2531,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="footer-banner"><div class="pb-wrap"><div class="pb">
+  <div class="footer-banner fb-light"><div class="pb-wrap"><div class="pb">
             <div class="pb-group"><p class="pb-label">Organised by:</p><div class="pb-logos">
               <img src="assets/logos/partners/banner/1-ERTICO.svg" alt="ERTICO – ITS Europe" style="--ratio: 1.776"></div></div>
             <div class="pb-group"><p class="pb-label">Co-organised by:</p><div class="pb-logos">
@@ -2546,6 +2551,27 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
             <div class="pb-group"><p class="pb-label">Supported by:</p><div class="pb-logos">
               <img src="assets/logos/partners/banner/8-LCRIG.png" alt="LCRIG" style="--ratio: 2.704">
               <img src="assets/logos/partners/banner/9-ITS-UK.svg" alt="ITS UK" style="--ratio: 2.235"></div></div>
+          </div></div></div>
+  <div class="footer-banner fb-dark"><div class="pb-wrap"><div class="pb pb--white">
+            <div class="pb-group"><p class="pb-label">Organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/1-ERTICO.png" alt="ERTICO – ITS Europe" style="--ratio: 1.770"></div></div>
+            <div class="pb-group"><p class="pb-label">Co-organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/2-ITS-America.png" alt="ITS America" style="--ratio: 4.704">
+              <img src="assets/logos/partners/banner-white/3-ITS-Asia-Pacific.png" alt="ITS Asia-Pacific" style="--ratio: 1.348"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">In collaboration with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/4-European-Commission.png" alt="European Commission" style="--ratio: 3.629"></div></div>
+            <div class="pb-break pb-break--tablet"></div>
+            <div class="pb-group"><p class="pb-label">In partnership with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/5-ITS-Nationals.png" alt="ITS Nationals" style="--ratio: 4.794; --scale: 0.85"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Hosted by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/6-Transport-for-West-Midlands.png" alt="Transport for West Midlands" style="--ratio: 3.636">
+              <img src="assets/logos/partners/banner-white/7-UK-Government.png" alt="UK Government" style="--ratio: 7.106"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Supported by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner-white/8-LCRIG.png" alt="LCRIG" style="--ratio: 2.614">
+              <img src="assets/logos/partners/banner-white/9-ITS-UK.png" alt="ITS UK" style="--ratio: 2.108"></div></div>
           </div></div></div>
   <div class="h">ITS World Congress Birmingham 2027</div>
   <div class="sub">ITS World Congress Birmingham 2027 · #ITSBirmingham2027</div>
