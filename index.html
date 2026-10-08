@@ -432,6 +432,37 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .logo-files{padding:12px 20px;font-size:0.72rem;color:var(--panel-muted);font-family:ui-monospace,'SF Mono',Menlo,monospace;line-height:1.6;}
 .banner-plate{margin-top:30px;background:var(--paper);border-radius:var(--r-lg);padding:clamp(20px,4vw,44px);}
 .banner-plate img{width:100%;height:auto;display:block;}
+/* ===== ORGANISERS BANNER (.pb) · the congress website's partner-banner snippet (2027.itsworldcongress.com, Oct 2026),
+   same logos, same sizing maths, same row breaks. One change: the 2-row / 4-row rules are container queries on the
+   banner's own width instead of screen-width media queries, because here the banner also sits in narrow places
+   (a download card, a demo panel). Thresholds = the banner widths at which the website switches (measured 8 Oct 2026:
+   1 row from 915px wide, 2 rows from 570px, 4 rows below). ===== */
+.pb-wrap{container:pb / inline-size;}
+.pb{container-type:inline-size;display:flex;flex-wrap:wrap;width:100%;--side:min(69px,4.8cqi);--line:1px solid rgb(196,207,209);}
+.pb *{box-sizing:border-box;}
+.pb .pb-group{display:flex;flex-direction:column;flex:1 1 auto;min-width:0;padding:0 1cqi;border-left:var(--line);}
+.pb .pb-group:last-child{border-right:var(--line);}
+.pb .pb-group .pb-label{width:0;min-width:100%;margin:0 0 0.5rem;font-size:clamp(0.6rem,0.8cqi,0.75rem);font-weight:600;line-height:1.2;text-transform:uppercase;letter-spacing:0;color:rgb(185,196,197);}
+.pb .pb-logos{display:flex;flex:1;align-items:center;justify-content:space-evenly;gap:2cqi;min-width:0;}
+.pb .pb-logos img{display:block;flex:0 1 auto;min-width:0;width:calc(var(--side) * sqrt(var(--ratio,1)) * var(--scale,1));height:auto;aspect-ratio:var(--ratio,1);max-width:none;}
+.pb .pb-break{display:none;flex-basis:100%;height:1.25rem;}
+@container pb (max-width:914px){
+  .pb{--side:min(60px,calc((100cqi - 7.5rem) / 10));}
+  .pb .pb-group{padding:0 0.75rem;}
+  .pb .pb-group .pb-label{font-size:0.75rem;}
+  .pb .pb-logos{gap:1.25rem;}
+  .pb .pb-break--tablet{display:block;}
+  .pb .pb-group:has(+ .pb-break--tablet){border-right:var(--line);}
+}
+@container pb (max-width:569px){
+  .pb{--side:min(60px,calc((100cqi - 3.5rem) / 4.8));}
+  .pb .pb-group{padding:0 0.5rem;border-right:0;}
+  .pb .pb-group:has(+ .pb-break--tablet),.pb .pb-group:last-child{border-right:0;}
+  .pb .pb-break--tablet{display:none;}
+  .pb .pb-break--mobile{display:block;}
+  .pb .pb-group:first-child,.pb .pb-break--mobile + .pb-group{border-left:0;}
+}
+
 .partner-status{margin-top:30px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
 .partner-tile{background:var(--paper);border-radius:var(--r-md);padding:14px 22px;height:66px;display:flex;align-items:center;}
 .partner-tile img{height:38px;width:auto;max-width:240px;}
@@ -1017,6 +1048,9 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .dl-view.photo-view{padding:0;} .dl-view.photo-view img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;}
 .dl-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--panel-line);border-radius:var(--r-md);overflow:hidden;}
 .dl-view{height:170px;display:flex;align-items:center;justify-content:center;padding:28px;}
+.dl-grid .dl-card{display:grid;grid-row:span 2;grid-template-rows:subgrid;gap:0;}
+.dl-grid .dl-view{height:auto;min-height:170px;}
+.dl-view.pb-view{padding:18px 12px;} .dl-view.pb-view .pb-wrap{width:100%;}
 .dl-view.on-purple{background:var(--purple-900);} .dl-view.on-white{background:#fff;padding:14px;}
 .dl-view img{max-width:100%;max-height:100%;}
 .dl-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
@@ -1024,12 +1058,12 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .dl-body p{font-size:0.92rem;line-height:1.5;color:var(--panel-muted);flex:1;}
 .dl-body .btn{align-self:flex-start;white-space:normal;}
 a.dl-view{text-decoration:none;}
-a.dl-view img{transition:transform .25s var(--ease);} a.dl-view:hover img{transform:scale(1.04);}
+a.dl-view > img{transition:transform .25s var(--ease);} a.dl-view:hover > img{transform:scale(1.04);}
 .dl-body h3 a{color:inherit;text-decoration:none;} .dl-body h3 a:hover{text-decoration:underline;text-underline-offset:3px;}
 .dl-pick{font-size:0.85rem;font-weight:600;color:var(--panel-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--color-cta);}
 .dl-pick:hover{color:var(--color-cta);}
 [id^="dl-"]{scroll-margin-top:96px;}
-@media (prefers-reduced-motion:reduce){a.dl-view img{transition:none;} a.dl-view:hover img{transform:none;}}
+@media (prefers-reduced-motion:reduce){a.dl-view > img{transition:none;} a.dl-view:hover > img{transform:none;}}
 .dl-thumbs{--dl-ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v12'/%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3Cpath d='M5 21h14'/%3E%3C/svg%3E");display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:22px;}
 .dl-thumbs.photos{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
 #downloads > .wrap{container-type:inline-size;}
@@ -1121,7 +1155,27 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
         </div>
       </div>
       <div class="dl-card">
-        <a class="dl-view on-white" href="#dl-banners" aria-label="Or pick one version"><img src="downloads/ITSWC27-Organisers-Banner.png" alt="Official ITS World Congress Birmingham 2027 organisers banner: organised by ERTICO, co-organised by ITS America and ITS Asia-Pacific, in collaboration with the European Commission, in partnership with ITS Nationals, hosted by Transport for West Midlands and UK Government, supported by LCRIG and ITS UK"></a>
+        <a class="dl-view on-white pb-view" href="#dl-banners" aria-label="Or pick one version"><div class="pb-wrap"><div class="pb">
+            <div class="pb-group"><p class="pb-label">Organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/1-ERTICO.svg" alt="ERTICO – ITS Europe" style="--ratio: 1.776"></div></div>
+            <div class="pb-group"><p class="pb-label">Co-organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/2-ITS-America.png" alt="ITS America" style="--ratio: 5.065">
+              <img src="assets/logos/partners/banner/3-ITS-Asia-Pacific.png" alt="ITS Asia-Pacific" style="--ratio: 1.271"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">In collaboration with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/4-European-Commission.svg" alt="European Commission" style="--ratio: 3.810"></div></div>
+            <div class="pb-break pb-break--tablet"></div>
+            <div class="pb-group"><p class="pb-label">In partnership with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/5-ITS-Nationals.svg" alt="ITS Nationals" style="--ratio: 5.362; --scale: 0.85"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Hosted by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/6-Transport-for-West-Midlands.svg" alt="Transport for West Midlands" style="--ratio: 3.846">
+              <img src="assets/logos/partners/banner/7-UK-Government.svg" alt="UK Government" style="--ratio: 8.131"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Supported by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/8-LCRIG.png" alt="LCRIG" style="--ratio: 2.704">
+              <img src="assets/logos/partners/banner/9-ITS-UK.svg" alt="ITS UK" style="--ratio: 2.235"></div></div>
+          </div></div></a>
         <div class="dl-body">
           <h3><a href="#dl-banners">Organisers banner</a></h3>
           <p>The current organiser and partner strip, as used on the congress website. Colour for white backgrounds, white for purple, dark backgrounds or photos.</p>
@@ -1251,7 +1305,6 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
       <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Selfridges-Bullring-mono.jpg" download><span class="dl-media"><img loading="lazy" src="downloads/image-bank/ITSWC27-Selfridges-Bullring-mono-thumb.jpg" alt="Selfridges Bullring mono"></span><span class="dl-name">Selfridges Bullring mono</span></a>
       <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Selfridges-Bullring-sky.jpg" download><span class="dl-media"><img loading="lazy" src="downloads/image-bank/ITSWC27-Selfridges-Bullring-sky-thumb.jpg" alt="Selfridges Bullring sky"></span><span class="dl-name">Selfridges Bullring sky</span></a>
     </div>
-    <p class="note" style="margin-top:18px">Need something that is not here? Email <a href="mailto:r.calabrese@mail.ertico.com">r.calabrese@mail.ertico.com</a>.</p>
   </div>
 </section>
 
@@ -1939,7 +1992,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
     <div style="margin-top:44px"></div>
     <h3 class="sec-title" style="font-size:clamp(1.3rem,2.6vw,1.7rem)"><b>Logo wall</b></h3>
     <p class="note">Third-party marks always sit on a white plate, so partners keep their official colourways on any
-      surface. Three variants: the <strong>partner strip</strong> (organiser and host lockups, always full colour), the
+      surface. Three variants: the <strong>partner strip</strong> (the official organisers banner, coded as on the congress website, always full colour), the
       <strong>exhibitor wall</strong> (many marks, full colour: the industry norm, and every exhibitor sees their own
       brand instantly; the shared white plate keeps the wall uniform), and the <strong>big wall</strong> (15+ marks,
       e.g. Development Advisors). All display assets come from the normalised logo sets.</p>
@@ -1952,13 +2005,28 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
       wall on the homepage.</p>
     <div class="stack" style="gap:22px;margin-top:24px">
       <div class="stage dark" style="width:100%"><span class="stage-tag">Partner strip · on dark, white plate</span>
-        <div class="logowall">
-          <div class="lw-head">Organised &amp; hosted by</div>
-          <div class="lw-grid">
-            <img src="assets/logos/ertico/ertico-colour-tagline.png" alt="ERTICO – ITS Europe">
-            <img src="assets/logos/tfwm/Tfwm-Colour-Landscape.svg" alt="Transport for West Midlands">
-            <img src="assets/logos/its-birmingham-2027/normalised/ITSWC27-Colour-Landscape-NoDate.svg" alt="ITS World Congress Birmingham 2027">
-          </div>
+        <div class="banner-plate" style="margin-top:0">
+          <div class="pb-wrap"><div class="pb">
+            <div class="pb-group"><p class="pb-label">Organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/1-ERTICO.svg" alt="ERTICO – ITS Europe" style="--ratio: 1.776"></div></div>
+            <div class="pb-group"><p class="pb-label">Co-organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/2-ITS-America.png" alt="ITS America" style="--ratio: 5.065">
+              <img src="assets/logos/partners/banner/3-ITS-Asia-Pacific.png" alt="ITS Asia-Pacific" style="--ratio: 1.271"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">In collaboration with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/4-European-Commission.svg" alt="European Commission" style="--ratio: 3.810"></div></div>
+            <div class="pb-break pb-break--tablet"></div>
+            <div class="pb-group"><p class="pb-label">In partnership with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/5-ITS-Nationals.svg" alt="ITS Nationals" style="--ratio: 5.362; --scale: 0.85"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Hosted by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/6-Transport-for-West-Midlands.svg" alt="Transport for West Midlands" style="--ratio: 3.846">
+              <img src="assets/logos/partners/banner/7-UK-Government.svg" alt="UK Government" style="--ratio: 8.131"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Supported by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/8-LCRIG.png" alt="LCRIG" style="--ratio: 2.704">
+              <img src="assets/logos/partners/banner/9-ITS-UK.svg" alt="ITS UK" style="--ratio: 2.235"></div></div>
+          </div></div>
         </div>
       </div>
       <div class="stage light" style="width:100%"><span class="stage-tag">Exhibitor wall · on light, white plate</span>
@@ -2379,11 +2447,31 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
 <div style="margin-top:48px"></div>
     <span class="eyebrow">Official partner banner</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">The official lockup, on a <b>white plate</b> over purple</h3>
-    <p class="sec-lead">The official congress banner is a transparent raster of the dark / colour partner logos, so on
-      dark it sits on a white plate, the standard, premium way to present it. This is the current banner from the congress website;
-      <a href="#downloads">download it here</a>.</p>
+    <p class="sec-lead">The organisers banner, coded for the web exactly as on the congress website: one row on a wide
+      screen, two rows on a tablet, four on a phone. Third-party logos keep their own colours, so on dark it sits on a white plate.
+      For design files, <a href="#dl-banners">download the PNG</a> (colour or white).</p>
     <div class="banner-plate">
-      <img src="downloads/ITSWC27-Organisers-Banner.png" alt="Official ITS World Congress Birmingham 2027 organisers banner: organised by ERTICO, co-organised by ITS America and ITS Asia-Pacific, in collaboration with the European Commission, in partnership with ITS Nationals, hosted by Transport for West Midlands and UK Government, supported by LCRIG and ITS UK">
+          <div class="pb-wrap"><div class="pb">
+            <div class="pb-group"><p class="pb-label">Organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/1-ERTICO.svg" alt="ERTICO – ITS Europe" style="--ratio: 1.776"></div></div>
+            <div class="pb-group"><p class="pb-label">Co-organised by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/2-ITS-America.png" alt="ITS America" style="--ratio: 5.065">
+              <img src="assets/logos/partners/banner/3-ITS-Asia-Pacific.png" alt="ITS Asia-Pacific" style="--ratio: 1.271"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">In collaboration with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/4-European-Commission.svg" alt="European Commission" style="--ratio: 3.810"></div></div>
+            <div class="pb-break pb-break--tablet"></div>
+            <div class="pb-group"><p class="pb-label">In partnership with:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/5-ITS-Nationals.svg" alt="ITS Nationals" style="--ratio: 5.362; --scale: 0.85"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Hosted by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/6-Transport-for-West-Midlands.svg" alt="Transport for West Midlands" style="--ratio: 3.846">
+              <img src="assets/logos/partners/banner/7-UK-Government.svg" alt="UK Government" style="--ratio: 8.131"></div></div>
+            <div class="pb-break pb-break--mobile"></div>
+            <div class="pb-group"><p class="pb-label">Supported by:</p><div class="pb-logos">
+              <img src="assets/logos/partners/banner/8-LCRIG.png" alt="LCRIG" style="--ratio: 2.704">
+              <img src="assets/logos/partners/banner/9-ITS-UK.svg" alt="ITS UK" style="--ratio: 2.235"></div></div>
+          </div></div>
     </div>
 
 </section>
@@ -2676,6 +2764,15 @@ document.querySelectorAll('.vtile .play').forEach(function(btn){
   nav.querySelectorAll('.ds-item').forEach(b=>b.addEventListener('click',()=>history.replaceState(null,'','#'+b.dataset.item)));
   fromHash();
 })();
+
+/* ---------- organisers banner: where there is less room than on a phone (the download card, a phone-width plate),
+   lay it out at phone width (its 4-row layout) and shrink it to fit, so labels never collide ---------- */
+document.querySelectorAll('.pb-wrap').forEach(wrap=>{
+  const box=wrap.parentElement, PHONE=340;
+  const fit=()=>{ const cs=getComputedStyle(box), avail=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    const small=avail>0&&avail<PHONE; wrap.style.width=small?PHONE+'px':''; wrap.style.flex=small?'none':''; wrap.style.zoom=small?(avail/PHONE).toFixed(4):''; };
+  new ResizeObserver(fit).observe(box); fit();
+});
 
 /* ---------- downloads: build "download all" ZIPs in the browser (JSZip, self-hosted) ---------- */
 document.querySelectorAll('[data-zip]').forEach(btn=>btn.addEventListener('click',async()=>{
