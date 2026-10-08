@@ -1009,6 +1009,25 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .sitefooter .fsocial i{font-size:18px;line-height:1;}
 .sitefooter .fbar{margin-top:34px;padding-top:18px;border-top:1px solid var(--line-dark);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:0.8rem;color:rgba(255,255,255,0.68);}
 .sitefooter .fbar a{display:inline;color:inherit;padding:0;font-size:inherit;}
+
+/* ===== DOWNLOADS ===== */
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:32px;}
+.dl-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--panel-line);border-radius:var(--r-md);overflow:hidden;}
+.dl-view{height:170px;display:flex;align-items:center;justify-content:center;padding:28px;}
+.dl-view.on-purple{background:var(--purple-900);} .dl-view.on-white{background:#fff;padding:14px;}
+.dl-view img{max-width:100%;max-height:100%;}
+.dl-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.dl-body h3{font-size:1.15rem;font-weight:700;color:var(--panel-ink);}
+.dl-body p{font-size:0.92rem;line-height:1.5;color:var(--panel-muted);flex:1;}
+.dl-body .btn{align-self:flex-start;white-space:normal;}
+.dl-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:22px;}
+.dl-thumbs.photos{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
+.dl-thumb{display:flex;flex-direction:column;border:1px solid var(--panel-line);border-radius:var(--r-md);overflow:hidden;background:var(--panel);text-decoration:none;color:var(--panel-muted);transition:border-color .18s var(--ease);}
+.dl-thumb img{width:100%;aspect-ratio:1/1;object-fit:contain;background:var(--purple-900);padding:8px;}
+.dl-thumb.photo img{aspect-ratio:3/2;object-fit:cover;padding:0;}
+.dl-thumb span{font-size:0.78rem;padding:8px 10px;line-height:1.3;}
+.dl-thumb:hover,.dl-thumb:focus-visible{border-color:var(--color-cta);outline:none;}
+.btn[data-busy]{opacity:0.7;cursor:progress;}
 </style>
 </head>
 <body>
@@ -1041,8 +1060,111 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
     <p class="hero-sub">The single source of truth for ITS World Congress Birmingham 2027 design:
       every token, component and pattern, shown on dark and light, for anyone creating for the congress.
       This page is built <em>in</em> the system it documents.</p>
+    <p style="margin-top:26px"><a class="btn btn--cta" href="#downloads">Download logos, graphics &amp; photos</a></p>
   </div>
 </header>
+
+
+<!-- ============ DOWNLOADS ============ -->
+<section id="downloads" class="band-deep">
+  <div class="wrap">
+    <span class="eyebrow">Downloads</span>
+    <h2 class="sec-title">Everything you need to <b>make a banner</b></h2>
+    <p class="sec-lead">Official files for partners, media partners and designers creating material for the
+      ITS World Congress Birmingham 2027. Download what you need, then check the <a href="#logos">logo rules</a>
+      and <a href="#color">colours</a> before you design.</p>
+
+    <div class="dl-grid">
+      <div class="dl-card">
+        <div class="dl-view on-purple"><img src="assets/logos/its-birmingham-2027/normalised/ITSWC27-White-Landscape-Date.svg" alt="ITS World Congress Birmingham 2027 logo"></div>
+        <div class="dl-body">
+          <h3>Congress logo</h3>
+          <p>All 10 versions: landscape, portrait and the bull brandmark, in colour and white, with and without the date. SVG (vector, for print) and transparent PNG (3000&nbsp;px).</p>
+          <a class="btn btn--cta btn--sm" href="downloads/ITSWC27-Congress-Logos.zip" download><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Logo pack · ZIP · 4.4&nbsp;MB</a>
+        </div>
+      </div>
+      <div class="dl-card">
+        <div class="dl-view on-white"><img src="downloads/ITSWC27-Organisers-Banner.png" alt="Official ITS World Congress Birmingham 2027 organisers banner: organised by ERTICO, co-organised by ITS America and ITS Asia-Pacific, in collaboration with the European Commission, in partnership with ITS Nationals, hosted by Transport for West Midlands and UK Government, supported by LCRIG and ITS UK"></div>
+        <div class="dl-body">
+          <h3>Organisers banner</h3>
+          <p>The current organiser and partner strip, as used on the congress website. Place it on white, unchanged.</p>
+          <a class="btn btn--cta btn--sm" href="downloads/ITSWC27-Organisers-Banner.png" download><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Banner · PNG</a>
+        </div>
+      </div>
+      <div class="dl-card">
+        <div class="dl-view on-purple spin-bg"><img src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic"></div>
+        <div class="dl-body">
+          <h3>Modal Spin graphics</h3>
+          <p>The official brand swirl, 27 transparent PNGs. Use as a background, corner or texture. Never rotate, recolour or animate it.</p>
+          <button class="btn btn--cta btn--sm" type="button" data-zip="modal-spin" data-zipname="ITSWC27-Modal-Spin.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 27 · ZIP · 29&nbsp;MB</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px"></div>
+    <span class="eyebrow">Modal Spin · pick one</span>
+    <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Download a <b>single graphic</b></h3>
+    <p class="sec-lead">Click a graphic to download the full-size PNG.</p>
+    <div class="dl-thumbs" data-set="modal-spin">
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-01.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic 01"><span>01</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-02.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-02-thumb.png" alt="Modal Spin graphic 02"><span>02</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-03.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-03-thumb.png" alt="Modal Spin graphic 03"><span>03</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-04.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-04-thumb.png" alt="Modal Spin graphic 04"><span>04</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-05.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-05-thumb.png" alt="Modal Spin graphic 05"><span>05</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-06.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-06-thumb.png" alt="Modal Spin graphic 06"><span>06</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-07.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-07-thumb.png" alt="Modal Spin graphic 07"><span>07</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-08.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-08-thumb.png" alt="Modal Spin graphic 08"><span>08</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-09.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-09-thumb.png" alt="Modal Spin graphic 09"><span>09</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-10.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-10-thumb.png" alt="Modal Spin graphic 10"><span>10</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-11.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-11-thumb.png" alt="Modal Spin graphic 11"><span>11</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-12.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-12-thumb.png" alt="Modal Spin graphic 12"><span>12</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-13.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-13-thumb.png" alt="Modal Spin graphic 13"><span>13</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-14.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-14-thumb.png" alt="Modal Spin graphic 14"><span>14</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-15.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-15-thumb.png" alt="Modal Spin graphic 15"><span>15</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-16.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-16-thumb.png" alt="Modal Spin graphic 16"><span>16</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-17.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-17-thumb.png" alt="Modal Spin graphic 17"><span>17</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-18.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-18-thumb.png" alt="Modal Spin graphic 18"><span>18</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-19.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-19-thumb.png" alt="Modal Spin graphic 19"><span>19</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-20.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-20-thumb.png" alt="Modal Spin graphic 20"><span>20</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-21.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-21-thumb.png" alt="Modal Spin graphic 21"><span>21</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-22.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-22-thumb.png" alt="Modal Spin graphic 22"><span>22</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-23.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-23-thumb.png" alt="Modal Spin graphic 23"><span>23</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-24.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-24-thumb.png" alt="Modal Spin graphic 24"><span>24</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-25.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-25-thumb.png" alt="Modal Spin graphic 25"><span>25</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-26.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-26-thumb.png" alt="Modal Spin graphic 26"><span>26</span></a>
+      <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-27.png" download><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-27-thumb.png" alt="Modal Spin graphic 27"><span>27</span></a>
+    </div>
+
+    <div style="margin-top:48px"></div>
+    <span class="eyebrow">Image bank</span>
+    <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Birmingham <b>photography</b></h3>
+    <p class="sec-lead">High-resolution photos of the host city and venue (up to 4000&nbsp;px). For use in material that promotes
+      the ITS World Congress Birmingham 2027 only. Click a photo to download it.</p>
+    <p style="margin-top:18px"><button class="btn btn--cta btn--sm" type="button" data-zip="image-bank" data-zipname="ITSWC27-Image-Bank.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 19 photos · ZIP · 21&nbsp;MB</button></p>
+    <div class="dl-thumbs photos" data-set="image-bank">
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Birmingham-Airport.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Birmingham-Airport-thumb.jpg" alt="Birmingham Airport"><span>Birmingham Airport</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Birmingham-Festival-dancer.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Birmingham-Festival-dancer-thumb.jpg" alt="Birmingham Festival dancer"><span>Birmingham Festival dancer</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Birmingham-Metro-tram.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Birmingham-Metro-tram-thumb.jpg" alt="Birmingham Metro tram"><span>Birmingham Metro tram</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Birmingham-Peaky-Blinders-mural.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Birmingham-Peaky-Blinders-mural-thumb.jpg" alt="Birmingham Peaky Blinders mural"><span>Birmingham Peaky Blinders mural</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Coventry-electric-bus.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Coventry-electric-bus-thumb.jpg" alt="Coventry electric bus"><span>Coventry electric bus</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Innovation-NAIC-car-sculpture.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Innovation-NAIC-car-sculpture-thumb.jpg" alt="Innovation NAIC car sculpture"><span>Innovation NAIC car sculpture</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Innovation-NAIC-robot-dog.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Innovation-NAIC-robot-dog-thumb.jpg" alt="Innovation NAIC robot dog"><span>Innovation NAIC robot dog</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Innovation-electric-microcar.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Innovation-electric-microcar-thumb.jpg" alt="Innovation electric microcar"><span>Innovation electric microcar</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Innovation-robotics-lab.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Innovation-robotics-lab-thumb.jpg" alt="Innovation robotics lab"><span>Innovation robotics lab</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Library-of-Birmingham-facade.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Library-of-Birmingham-facade-thumb.jpg" alt="Library of Birmingham facade"><span>Library of Birmingham facade</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Library-of-Birmingham-rotunda.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Library-of-Birmingham-rotunda-thumb.jpg" alt="Library of Birmingham rotunda"><span>Library of Birmingham rotunda</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Library-of-Birmingham.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Library-of-Birmingham-thumb.jpg" alt="Library of Birmingham"><span>Library of Birmingham</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-NEC-Birmingham-entrance.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-NEC-Birmingham-entrance-thumb.jpg" alt="NEC Birmingham entrance"><span>NEC Birmingham entrance</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-NEC-Birmingham-exterior-1.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-NEC-Birmingham-exterior-1-thumb.jpg" alt="NEC Birmingham exterior 1"><span>NEC Birmingham exterior 1</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-NEC-Birmingham-exterior-2.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-NEC-Birmingham-exterior-2-thumb.jpg" alt="NEC Birmingham exterior 2"><span>NEC Birmingham exterior 2</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Research-NAIC-mixed-reality.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Research-NAIC-mixed-reality-thumb.jpg" alt="Research NAIC mixed reality"><span>Research NAIC mixed reality</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Research-NAIC-robot-arm.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Research-NAIC-robot-arm-thumb.jpg" alt="Research NAIC robot arm"><span>Research NAIC robot arm</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Selfridges-Bullring-mono.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Selfridges-Bullring-mono-thumb.jpg" alt="Selfridges Bullring mono"><span>Selfridges Bullring mono</span></a>
+      <a class="dl-thumb photo" href="downloads/image-bank/ITSWC27-Selfridges-Bullring-sky.jpg" download><img loading="lazy" src="downloads/image-bank/ITSWC27-Selfridges-Bullring-sky-thumb.jpg" alt="Selfridges Bullring sky"><span>Selfridges Bullring sky</span></a>
+    </div>
+    <p class="note" style="margin-top:18px">Need something that is not here? Email <a href="mailto:r.calabrese@mail.ertico.com">r.calabrese@mail.ertico.com</a>.</p>
+  </div>
+</section>
 
 <!-- ============ COLOR ============ -->
 <section id="color" class="band-deep">
@@ -2169,10 +2291,10 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
     <span class="eyebrow">Official partner banner</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">The official lockup, on a <b>white plate</b> over purple</h3>
     <p class="sec-lead">The official congress banner is a transparent raster of the dark / colour partner logos, so on
-      dark it sits on a white plate, the standard, premium way to present it. Individual partner SVGs (WMCA, UK
-      Government, Visit Britain, ITS UK and the rest) are being sourced so the banner can be rebuilt from parts.</p>
+      dark it sits on a white plate, the standard, premium way to present it. This is the current banner from the congress website;
+      <a href="#downloads">download it here</a>.</p>
     <div class="banner-plate">
-      <img src="assets/logos/partner-banner/Official%20Congress%20Banners%202026_Digital.png" alt="Official ITS World Congress Birmingham 2027 partner banner: ERTICO, European Commission, ITS America, Asia-Pacific ITS, West Midlands Combined Authority, Transport for West Midlands, UK Government, Visit Britain, Intelligent Transport Systems UK">
+      <img src="downloads/ITSWC27-Organisers-Banner.png" alt="Official ITS World Congress Birmingham 2027 organisers banner: organised by ERTICO, co-organised by ITS America and ITS Asia-Pacific, in collaboration with the European Commission, in partnership with ITS Nationals, hosted by Transport for West Midlands and UK Government, supported by LCRIG and ITS UK">
     </div>
 
 </section>
@@ -2398,6 +2520,7 @@ document.querySelectorAll('.vtile .play').forEach(function(btn){
   const PAGES=[
     {group:'Get started', items:[
       {id:'overview', title:'Overview', secs:['sec-hero']},
+      {id:'downloads', title:'Downloads', secs:['downloads']},
     ]},
     {group:'Foundations', items:[
       {id:'color', title:'Colour', secs:['color','sec-contrast']},
@@ -2454,8 +2577,32 @@ document.querySelectorAll('.vtile .play').forEach(function(btn){
   menuBtn.addEventListener('click',()=>{ sidebar.classList.add('open'); scrim.classList.add('show'); });
   scrim.addEventListener('click', closeMobile);
 
-  showPage('overview');
+  // deep links: #downloads, #logos ... open that page
+  function fromHash(){ const h=location.hash.slice(1); const it=PAGES.flatMap(g=>g.items).find(i=>i.id===h||i.secs.includes(h)); showPage(it?it.id:'overview'); }
+  window.addEventListener('hashchange', fromHash);
+  document.addEventListener('click',e=>{ const a=e.target.closest('a[href^="#"]'); if(a&&a.getAttribute('href').length>1){ e.preventDefault(); history.pushState(null,'',a.getAttribute('href')); fromHash(); } });
+  nav.querySelectorAll('.ds-item').forEach(b=>b.addEventListener('click',()=>history.replaceState(null,'','#'+b.dataset.item)));
+  fromHash();
 })();
+
+/* ---------- downloads: build "download all" ZIPs in the browser (JSZip, self-hosted) ---------- */
+document.querySelectorAll('[data-zip]').forEach(btn=>btn.addEventListener('click',async()=>{
+  if(btn.dataset.busy) return;
+  const label=btn.innerHTML; btn.dataset.busy=1;
+  try{
+    const links=[...document.querySelectorAll('[data-set="'+btn.dataset.zip+'"] a[download]')];
+    const zip=new JSZip(); let n=0;
+    for(const a of links){
+      btn.lastChild.textContent=' Preparing '+(++n)+' / '+links.length+'…';
+      const r=await fetch(a.getAttribute('href')); zip.file(decodeURIComponent(a.getAttribute('href').split('/').pop()), await r.blob());
+    }
+    btn.lastChild.textContent=' Zipping…';
+    const blob=await zip.generateAsync({type:'blob'});
+    const u=URL.createObjectURL(blob), t=document.createElement('a'); t.href=u; t.download=btn.dataset.zipname; document.body.appendChild(t); t.click(); t.remove();
+    setTimeout(()=>URL.revokeObjectURL(u),4000);
+  }catch(err){ console.error(err); btn.lastChild.textContent=' Download failed, click a single file instead'; await new Promise(r=>setTimeout(r,3000)); }
+  btn.innerHTML=label; delete btn.dataset.busy;
+}));
 </script>
 
 <!-- ========== HOST-CITIES GLOBE (inlined component) ========== -->
@@ -2632,5 +2779,6 @@ document.querySelectorAll('.vtile .play').forEach(function(btn){
     io.observe(stage);
   }
 </script>
+<script src="assets/vendor/jszip.min.js"></script>
 </body>
 </html>
