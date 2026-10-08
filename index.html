@@ -1011,7 +1011,10 @@ section{padding:clamp(44px,6vw,80px) clamp(20px,5vw,56px);}
 .sitefooter .fbar a{display:inline;color:inherit;padding:0;font-size:inherit;}
 
 /* ===== DOWNLOADS ===== */
-.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:32px;}
+.dl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:32px;}
+@container (max-width:1000px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@container (max-width:560px){.dl-grid{grid-template-columns:1fr;}}
+.dl-view.photo-view{padding:0;} .dl-view.photo-view img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;}
 .dl-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--panel-line);border-radius:var(--r-md);overflow:hidden;}
 .dl-view{height:170px;display:flex;align-items:center;justify-content:center;padding:28px;}
 .dl-view.on-purple{background:var(--purple-900);} .dl-view.on-white{background:#fff;padding:14px;}
@@ -1106,7 +1109,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
         <div class="dl-body">
           <h3>Congress logo</h3>
           <p>All 10 versions: landscape, portrait and the bull brandmark, in colour and white, with and without the date. SVG (vector, for print) and transparent PNG (3000&nbsp;px).</p>
-          <a class="btn btn--cta btn--sm" href="downloads/ITSWC27-Congress-Logos.zip" download><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Logo pack · ZIP · 4.4&nbsp;MB</a>
+          <a class="btn btn--cta btn--sm" href="downloads/ITSWC27-Congress-Logos.zip" download><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 10 · ZIP · 4.4&nbsp;MB</a>
         </div>
       </div>
       <div class="dl-card">
@@ -1114,7 +1117,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
         <div class="dl-body">
           <h3>Organisers banner</h3>
           <p>The current organiser and partner strip, as used on the congress website. Colour for white backgrounds, white for purple, dark backgrounds or photos.</p>
-          <button class="btn btn--cta btn--sm" type="button" data-zip="banners" data-zipname="ITSWC27-Organisers-Banner.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Both versions · ZIP · 0.7&nbsp;MB</button>
+          <button class="btn btn--cta btn--sm" type="button" data-zip="banners" data-zipname="ITSWC27-Organisers-Banner.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Both · ZIP · 0.7&nbsp;MB</button>
         </div>
       </div>
       <div class="dl-card">
@@ -1123,6 +1126,14 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
           <h3>Modal Spin graphics</h3>
           <p>The official brand swirl, 27 transparent PNGs. Use as a background, corner or texture. Never rotate, recolour or animate it.</p>
           <button class="btn btn--cta btn--sm" type="button" data-zip="modal-spin" data-zipname="ITSWC27-Modal-Spin.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 27 · ZIP · 29&nbsp;MB</button>
+        </div>
+      </div>
+      <div class="dl-card">
+        <div class="dl-view photo-view"><img src="downloads/image-bank/ITSWC27-Spaghetti-Junction-aerial-thumb.jpg" alt="Spaghetti Junction from the air"></div>
+        <div class="dl-body">
+          <h3>Image bank</h3>
+          <p>30 high-resolution photos of Birmingham and the venue, up to 4000&nbsp;px. For material that promotes the Congress only.</p>
+          <button class="btn btn--cta btn--sm" type="button" data-zip="image-bank" data-zipname="ITSWC27-Image-Bank.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 30 · ZIP · 42&nbsp;MB</button>
         </div>
       </div>
     </div>
@@ -1160,6 +1171,7 @@ a.dl-thumb:hover .dl-name,a.dl-thumb:focus-visible .dl-name{color:var(--panel-in
     <span class="eyebrow">Modal Spin · pick one</span>
     <h3 class="sec-title" style="font-size:clamp(1.4rem,3vw,2rem)">Download a <b>single graphic</b></h3>
     <p class="sec-lead">Click a graphic to download the full-size PNG.</p>
+    <p style="margin-top:18px"><button class="btn btn--cta btn--sm" type="button" data-zip="modal-spin" data-zipname="ITSWC27-Modal-Spin.zip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>All 27 · ZIP · 29&nbsp;MB</button></p>
     <div class="dl-thumbs" data-set="modal-spin">
       <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-01.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-01-thumb.png" alt="Modal Spin graphic 01"></span><span class="dl-name">01</span></a>
       <a class="dl-thumb" href="downloads/modal-spin/ITSWC27-Modal-Spin-02.png" download><span class="dl-media"><img loading="lazy" src="downloads/modal-spin/ITSWC27-Modal-Spin-02-thumb.png" alt="Modal Spin graphic 02"></span><span class="dl-name">02</span></a>
